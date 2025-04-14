@@ -1,0 +1,272 @@
+/* ===================================== */
+/* Global Reset and Base Styles          */
+/* ===================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  /* Remove inline spacing */
+  line-height: 0;
+  background-color: var(--bg);
+}
+
+body, .dynamic_page {
+  font-family: "Varela Round", sans-serif;
+  -webkit-font-smoothing: antialiased; /* Uses subpixel rendering on WebKit-based browsers like Chrome and Safari */
+  -moz-osx-font-smoothing: grayscale;  /* Improves font rendering on Firefox on macOS */
+  text-rendering: optimizeLegibility;   /* Enhances legibility by using kerning and optional ligatures */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.timer {
+  position: fixed;
+  top: .25rem;
+  left: .25rem;
+  width: fit-content;
+  text-align: center;
+  background-color: #292929;
+  opacity: 0.5;
+  text-shadow: 1px 1px 1px #000;
+  color: white;
+  line-height: 1;
+  padding: .125rem .25rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  z-index: 9000;
+}
+
+.pagenumber {
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  z-index: 9000;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  background: #292929;
+  padding: 0.25rem 0.5rem;
+  width: fit-content;
+  height: 2rem;
+  border-radius: 0 0 0 4px;
+  text-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page_navigation {
+  position: fixed;
+  bottom: 0.25rem;
+  left: 0.25rem;
+  display: flex;
+  gap: 0.25rem;
+  z-index: 1000;
+
+  button {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #fff;
+    background-color: #292929;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 4px;
+    padding: 0;
+    border: none;
+  }
+
+  button:hover {
+    color: #000;
+    background-color: #c5e1a5;
+  }
+
+  button:active {
+    color: #fff;
+    background-color: #cc3333;
+  }
+}
+
+.cell {
+  position: relative;
+}
+
+/* ====================================== */
+/* Portrait 1: 9:16 Single Portrait       */
+/* ====================================== */
+.portrait_1 {
+  /* Custom properties for 9:16 layout based on viewport height */
+  --cell-width: calc(100vh * 9 / 16);
+}
+
+.one_portrait .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 100vw; */
+  height: 100vh;
+}
+
+.one_portrait .cell {
+  height: 100vh;
+ /* width: var(--cell-width); */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Remove any inline gaps */
+}
+
+.one_portrait .cell canvas {
+  height: 100vh;
+}
+
+/* ======================================= */
+/* Portrait 2: 9:16 Two Portraits          */
+/* ======================================= */
+.portrait_2 {
+  /* Custom properties for 9:16 cells with equal outer/middle gaps */
+  --cell-width: calc(100vh * 9 / 16);
+  --gap: calc((100vw - 2 * (100vh * 9 / 16)) / 3);
+}
+
+.two_portrait .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 0;
+/* width: 100vw; */
+  height: 100vh;
+}
+
+.two_portrait .cell {
+  height: 100vh;
+ /* width: var(--cell-width); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+}
+
+.two_portrait .cell canvas {
+  height: 100vh;
+}
+
+/* ======================================= */
+/* Portrait 3: 9:16 Three Portraits        */
+/* ======================================= */
+.portrait_3 {
+  /* Custom properties for 9:16 cells with equal outer/middle gaps */
+  --cell-width: calc(100vh * 9 / 16);
+  --gap: calc((100vw - 3 * (100vh * 9 / 16)) / 4);
+}
+
+.three_portrait .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 0;
+/* width: 100vw; */
+  height: 100vh;
+}
+
+.three_portrait .cell {
+  height: 100vh;
+ /* width: var(--cell-width); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+}
+
+.three_portrait .cell canvas {
+  height: 100vh;
+}
+
+/* ======================================= */
+/* Landscape 1: 16:9 Single Landscape      */
+/* ======================================= */
+.landscape_1 {
+  /* Custom property for 16:9 based on viewport width */
+  --cell-height: calc(100vw * 9 / 16);
+}
+
+.one_landscape .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.one_landscape .cell {
+  width: 100vw;
+  height: var(--cell-height);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0;
+  line-height: 0;
+}
+
+.one_landscape canvas{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ====================================== */
+/* Landscape 2: Two 32:9 Rows             */
+/* ====================================== */
+.landscape_2_rows {
+  /* Custom properties for 32:9 rows (each row’s height based on viewport width)
+     and vertical gap (vgap): the leftover vertical space divided into 3 equal parts. */
+  --row-height: calc(100vw * 9 / 32);
+  --vgap: calc((100vh - 2 * (100vw * 9 / 32)) / 3);
+}
+
+.two_landscape .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  padding-top: var(--vgap);
+  padding-bottom: var(--vgap);
+  gap: var(--vgap);
+}
+
+.two_landscape .cell {
+  width: 100vw;
+  height: var(--row-height);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0;
+  line-height: 0;
+}
+
+.two_landscape .cell img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}

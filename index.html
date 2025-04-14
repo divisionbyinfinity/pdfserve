@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="/developr/images/robot-blue.svg"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>No Extra White Space – 16:9 Single Landscape</title>
+  <link rel="stylesheet" href="pdfserve.css">
+  <!-- Preconnect for faster font loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Fonts available -->
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+  <!-- PDF.js : use CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+</head>
+<style>
+html {
+--URL: "README.pdf";
+--orientation: "landscape";
+--columns: 1;
+--type: "slideshow";
+--pagenumber: "yes";
+--bg: 292929;
+--transition: 1000;
+--interval: 10000;
+--timer: "no";
+}
+</style>
+<body>
+<div id="dynamic_page" class="dynamic_page"></div>
+<script src="pdfserve.js"></script>
+</body>
+</html>
