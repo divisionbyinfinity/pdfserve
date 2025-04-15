@@ -7,6 +7,8 @@
 
 This embedded script can be added to an html page (example index.html included) to render the individual pages of a pdf file as a slideshow or user-advanced presentation using PDF.js.  The script accepts URL parameters to turn on or off some features: orientation, columns, background-color, display page number, transition time (fade-in, fade-out on pages), interval (in slideshow mode, how long a slide is displayed before moving to the next image), and timer (if you want to have a small elapsed time counter in the top left of the screen).
 
+[DEMO](https://divisionbyinfinity.github.io//developr/pdfserve/?url=pdf_landscape.pdf&orientation=landscape)
+
 [PDF.js Homepage](https://mozilla.github.io/pdf.js/) 
 
 ## URL Parameters
